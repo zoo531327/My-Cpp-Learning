@@ -25,6 +25,7 @@ struct Addressbooks{
     //通讯录中当前记录联系人个数
     int m_Size;
 };
+
 //1.添加联系人
 void addPerson(Addressbooks * abs){
     //判断通讯录是否已满
@@ -84,6 +85,27 @@ void addPerson(Addressbooks * abs){
     }
 }
 
+//2、显示联系人
+void showPerson(Addressbooks * abs){
+    //判断通讯录中人数是否为0，如果为0，提示记录为空
+    //如果部位0，显示记录的联系人信息
+    if(abs->m_Size == 0){
+        cout<<"当前记录为空"<<endl;
+    }
+    else{
+        for(int i=0;i<abs->m_Size;i++){
+            cout<<"姓名："<<abs->personArray[i].m_Name <<"\t";
+            cout<<"性别："<<(abs->personArray[i].m_Sex == 1 ? "男":"女")<<"\t";
+            cout<<"年龄："<<abs->personArray[i].m_Age <<"\t";
+            cout<<"电话："<<abs->personArray[i].m_Phone <<"\t";
+            cout<<"住址："<<abs->personArray[i].m_Addr <<endl;
+        }
+    }
+
+    system("pause");//按任意键继续
+    system("cls");//清屏
+}
+
 //菜单页面
 void showMenu(){
     cout<<"1、添加联系人"<<endl;
@@ -115,6 +137,7 @@ int main(){
             addPerson(&abs);
             break;
         case 2://2、显示联系人
+            showPerson(&abs);
             break;
         case 3://3、删除联系人
             break;
