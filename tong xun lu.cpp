@@ -142,6 +142,26 @@ void deletePerson(Addressbooks * abs){
     system("cls");
 }
 
+//4、查找联系人
+void findPerson(Addressbooks * abs){
+    cout<<"请输入您要查找的联系人："<<endl;
+    string name;
+    cin>>name;
+
+    int ret = isExist(abs,name);
+
+    if(ret != -1){
+        cout<<"姓名："<<abs->personArray[ret].m_Name <<"\t";
+        cout<<"性别："<<(abs->personArray[ret].m_Sex == 1 ? "男":"女")<<"\t";
+        cout<<"年龄："<<abs->personArray[ret].m_Age <<"\t";
+        cout<<"电话："<<abs->personArray[ret].m_Phone <<"\t";
+        cout<<"住址："<<abs->personArray[ret].m_Addr <<endl;
+    }
+
+    system("pause");
+    system("cls");
+}
+
 //菜单页面
 void showMenu(){
     cout<<"1、添加联系人"<<endl;
@@ -179,6 +199,7 @@ int main(){
             deletePerson(&abs);
             break;
         case 4://4、查找联系人
+            findPerson(&abs);
             break;
         case 5://5、修改联系人
             break;
