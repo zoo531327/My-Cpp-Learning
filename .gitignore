@@ -1,2 +1,14 @@
+# 忽略任何目录下的 build 文件夹（核心：前后都要加斜杠，或者用双星号）
+**/build/
+build/
+
+# 忽略任何目录下的 output 文件夹
+**/output/
+output/
+
+# 忽略所有编译生成的临时文件和程序
 *.exe
 *.o
+*.obj
+.cmake/
+CMakeCache.txt
